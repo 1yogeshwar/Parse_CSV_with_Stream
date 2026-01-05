@@ -13,7 +13,7 @@ const validateCsv = async (req, res) =>{
 
     
     const validatedRows = await csvService.processCsv(fileBuffer, requiredHeaders);
-    console.log(requiredHeaders)
+//     console.log(requiredHeaders)
 //     res.send(result);
 res.json({
      message: 'Validation complete!',

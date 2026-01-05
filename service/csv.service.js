@@ -25,7 +25,7 @@ const processCsv = (fileBuffer, requiredHeaders) =>{
                 const needed = requiredHeaders[i];
 
 
-                if(!csvHeaders.includes(needed)){         //must check if header is in csvHeaders..
+                if(!csvHeaders.includes(needed)){         //must check if header is in csvH..
                         stream.destroy();
 
                         return reject(new Error(`Header "${needed}" is missing`))
@@ -44,9 +44,10 @@ const processCsv = (fileBuffer, requiredHeaders) =>{
         
         while(j<requiredHeaders.length){
            const column = requiredHeaders[j];
-           const value = row[column]; 
+              const value = row[column]?.toString().trim();
            
            
+
            if(value === null || value=== undefined || value === ''){
                 remarks.push(`${column} is empty`);
 
